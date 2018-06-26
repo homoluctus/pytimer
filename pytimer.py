@@ -1,7 +1,7 @@
-import os
 import sys
 import time
 import argparse
+import subprocess
 from pydub import AudioSegment
 
 def parseArgs():
@@ -47,9 +47,11 @@ def parseArgs():
     return vars(parser.parse_args())
 
 def alert(countdown):
+    # set the unit to seconds
     count = countdown['hour']*360 + countdown['minute']*60 + countdown['second']
     time.sleep(count)
-    os.system("aplay ~/src/python/hobby/timer/music/Far_Away_Sting.wav &")
+    # play music on background
+    subprocess.run("aplay ~/src/python/hobby/timer/music/Far_Away_Sting.wav &", shell=True)
 
 def main():
     countdown = parseArgs()
