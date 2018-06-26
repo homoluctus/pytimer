@@ -2,6 +2,7 @@ import sys
 import time
 import argparse
 import subprocess
+from time import localtime, strftime
 from pydub import AudioSegment
 
 def parseArgs():
@@ -38,24 +39,46 @@ def parseArgs():
     parser.add_argument(
             '-t',
             '--time',
-            nargs=1,
-            metavar='H:M',
+            type=int,
+            nargs=2,
+            metavar='H M',
             dest='time',
             help='Specify local time and Notify when it comes to specific time',
         )
 
     return vars(parser.parse_args())
 
-def alert(countdown):
+def countdown(hour, min, sec):
     # set the unit to seconds
-    count = countdown['hour']*360 + countdown['minute']*60 + countdown['second']
+    count = hour*360 + min*60 + sec
     time.sleep(count)
+
+def timer(hour, min):
+    current_hour = int(strftime("%H", localtime()))
+    current_min = int(strftime("%M", localtime()))
+    current_sec = int(strftime("%S", localtime()))
+
+    rest_hour = hour - current_hour
+    rest_min = min - current_min - 1
+    rest_sec = 61 - current_sec
+
+    if rest_hour < 0 or rest_min < 0:
+        sys.exit("Error : Invalid time")
+
+    countdown(rest_hour, rest_min, rest_sec)
+
+def alert():
     # play music on background
     subprocess.run("aplay ~/src/python/hobby/timer/music/Far_Away_Sting.wav &", shell=True)
 
 def main():
-    countdown = parseArgs()
-    alert(countdown)
+    count = parseArgs()
+    if count['time'] is None:
+        countdown(count['hour'], count['minute'], count['second'])
+        alert()
+    else:
+        timer(count['time'][0], count['time'][1])
+        alert()
 
 if __name__ == '__main__':
     main()
