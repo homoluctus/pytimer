@@ -12,36 +12,26 @@ def parseArgs():
         )
 
     parser.add_argument(
-            'count',
+            'hour',
             type=int,
-            metavar='N',
-            help='Notify in N minutes',
-        )
-
-    parser.add_argument(
-            '-h',
-            '--hour',
-            nargs=1,
+            nargs='?',
             metavar='H',
-            dest='hour',
             help='Notify in H hours',
         )
 
     parser.add_argument(
-            '-m',
-            '--minute',
-            nargs=1,
+            'minute',
+            type=int,
+            nargs='?',
             metavar='M',
-            dest='minute',
             help='Notify in M minutes',
         )
 
     parser.add_argument(
-            '-s',
-            '--second',
-            nargs=1,
+            'second',
+            type=int,
+            nargs='?',
             metavar='S',
-            dest='second',
             help='Notify in S seconds',
         )
 
@@ -57,8 +47,9 @@ def parseArgs():
     return vars(parser.parse_args())
 
 def alert(countdown):
-    time.sleep(countdown['count']*60)
-    os.system("aplay ~/src/python/hobby/timer/music/Far_Away_Sting.wav")
+    count = countdown['hour']*360 + countdown['minute']*60 + countdown['second']
+    time.sleep(count)
+    os.system("aplay ~/src/python/hobby/timer/music/Far_Away_Sting.wav &")
 
 def main():
     countdown = parseArgs()
