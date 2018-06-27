@@ -1,5 +1,5 @@
 # Pytimer
-pytimer is timer application
+Pytimer is timer application\
 Alert when it comes to a specific time
 
 # Usage
