@@ -1,8 +1,8 @@
 # Pytimer
 pytimer is timer application
+Alert when it comes to a specific time
 
 # Usage
-## Alert when it comes to a specific time
 
 ```
 python pytimer.py [-h] [-t H M] [H] [M] [S]
