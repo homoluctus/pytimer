@@ -19,13 +19,13 @@ optional arguments:\
 
 # Example
 
-## Alert in 2 seconds
+### 1) Alert in 2 seconds
 
 ```
 python pytimer.py 0 0 2
 ```
 
-## Alert at 12:30
+### 2) Alert at 12:30
 
 ```
 python pytimer.py -t 12 30
