@@ -9,13 +9,13 @@ python pytimer.py [-h] [-t H M] [H] [M] [S]
 ```
 
 positional arguments:\
-&emsp;H :&emsmp;Notify in H hours\
+&emsp;H :&emsp;Notify in H hours\
 &emsp;M :&emsp;Notify in M minutes\
 &emsp;S :&emsp;Notify in S seconds\
 
 optional arguments:\
 &emsp;-h, --help :&emsp;show this help message and exit\
-&emsp;-t H M, --time H M :\&emsp;Specify local time and Notify when it comes to specific time (H:M)
+&emsp;-t H M, --time H M :&emsp;Specify local time and Notify when it comes to specific time (H:M)
 
 # Example
 
