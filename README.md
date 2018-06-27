@@ -6,6 +6,7 @@ pytimer is timer application
 
 ```
 python pytimer.py [-h] [-t H M] [H] [M] [S]
+```
 
 positional arguments:\
 &emsp;H :&emsmp;Notify in H hours\
