@@ -14,7 +14,7 @@ positional arguments:\
 &emsp;S :&emsp;Notify in S seconds\
 
 optional arguments:\
-&emsp;-h, --help :&emsp;show this help message and exit\
+&emsp;-h, --help :&emsp;&emsp;&emsp;show this help message and exit\
 &emsp;-t H M, --time H M :&emsp;Specify local time and Notify when it comes to specific time (H:M)
 
 # Example
